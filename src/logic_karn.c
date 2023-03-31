@@ -83,24 +83,24 @@ bool* logic_karn_run(char* equ, int args, int *x, int *y)
     {
         if (*x == 2)
         {
-            bargs[0] = logic_karn_1_gray[ix];
+            bargs[((*y) / 2) + 0] = logic_karn_1_gray[ix];
         }
         else
         {
-            bargs[0] = logic_karn_2_gray[ix] & (1 << 0);
-            bargs[1] = logic_karn_2_gray[ix] & (1 << 1);
+            bargs[((*y) / 2) + 0] = logic_karn_2_gray[ix] & (1 << 0);
+            bargs[((*y) / 2) + 1] = logic_karn_2_gray[ix] & (1 << 1);
         }
 
         for (int iy = 0; iy < *y; iy++)
         {
             if (*y == 2)
             {
-                bargs[((*x) / 2) + 0] = logic_karn_1_gray[iy];
+                bargs[0] = logic_karn_1_gray[iy];
             }
             else
             {
-                bargs[((*x) / 2) + 0] = logic_karn_2_gray[iy] & (1 << 0);
-                bargs[((*x) / 2) + 1] = logic_karn_2_gray[iy] & (1 << 1);
+                bargs[0] = logic_karn_2_gray[iy] & (1 << 0);
+                bargs[1] = logic_karn_2_gray[iy] & (1 << 1);
             }
 
             *dp = logic_run_runner(equ, args, bargs);
