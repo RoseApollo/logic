@@ -10,12 +10,45 @@ int logic_karn_2_gray[] = {0b00, 0b01, 0b11, 0b10};
 void logic_karn_render(bool* karn, int x, int y)
 {
     bool *c = karn;
+
+    printf("|   ");
+
+    for (int iy = 0; iy < y; iy++)
+    {
+        if (y == 2)
+        {
+            printf("| %d ", (logic_karn_1_gray[iy] & (1)));
+        }
+        else
+        {
+            printf("|%d%d ", (logic_karn_2_gray[iy] & (1 << 0)), ((logic_karn_2_gray[iy] & (1 << 1)) / 2));
+        }
+    }
+
+    printf("|\n");
     
     for (int ix = 0; ix < x; ix++)
     {
+        if (x == 2)
+        {
+            printf("| %d ", (logic_karn_1_gray[ix] & (1)));
+        }
+        else
+        {
+            printf("|%d%d ", (logic_karn_2_gray[ix] & (1 << 0)), ((logic_karn_2_gray[ix] & (1 << 1)) / 2));
+        }
+
         for (int iy = 0; iy < y; iy++)
         {
-            printf("| %d ", *c);
+            if (*c == 1)
+            {
+                printf("| 1 ");
+            }
+            else
+            {
+                printf("|   ");
+            }
+
             c++; // lmao
         }
 
