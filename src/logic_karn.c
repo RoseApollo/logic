@@ -54,6 +54,8 @@ void logic_karn_render(bool* karn, int x, int y)
 
         printf("|\n");
     }
+
+    printf("\n"); // just nicely end it
 }
 
 bool* logic_karn_run(char* equ, int args, int *x, int *y)

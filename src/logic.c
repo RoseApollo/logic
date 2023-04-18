@@ -7,9 +7,9 @@
 int main(int argc, char** argv)
 {
     int x, y;
-    char d[] = "(D^B)v(B^-C)v(B^(-C^-D))v(A^C^D)v(-C^D^-A^-B)";
+    char d[] = "(-(AvB)v-(A^B))^((-A^B)v((AvB)^(-Bv-A)))";
 
-    bool* c = logic_karn_run(d, 4, &x, &y);
+    bool* c = logic_karn_run(d, 2, &x, &y);
     logic_karn_render(c, x, y);
 
     return 0;
